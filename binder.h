@@ -6,7 +6,7 @@
 
 #include "todo.h"
 
-struct Binder{ // TODO add specifications from assignment (subject, etc.)
+struct Binder{ 
 private:
 	Todo_queue * todoHead;
 	char * subject;
