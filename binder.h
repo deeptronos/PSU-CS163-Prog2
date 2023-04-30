@@ -6,9 +6,13 @@
 
 #include "todo.h"
 
-struct Binder{
+struct Binder{ // TODO add specifications from assignment (subject, etc.)
 private:
-	todo_queue * todoHead;
+	Todo_queue * todoHead;
+	char * subject;
+	bool completed_status; //
+	char * content_description;
+	//<TYPE> <name>; CUSTOM PROPERTY TBD
 
 public:
 	Binder * next;
@@ -19,6 +23,7 @@ public:
 class Binder_stack{
 private:
 	Binder * stackHead;
+
 
 public:
 	int top_index; // should this be private?
@@ -33,13 +38,16 @@ public:
 	Binder * peek()
 };
 
-class b_s_list{
+class B_s_list{
 private:
 	Binder_stack * head;
 
 public:
+	B_s_list();
+	~B_s_list()
+
 	int display();
-	
-	int add_stack(const Binder_stack & to_add);
-	int remove_stack(const Binder_stack);
+
+	int add_stack(const Binder_stack & to_add); // Should the argument be const??
+	int remove_stack(const Binder_stack & to_remove);
 };
