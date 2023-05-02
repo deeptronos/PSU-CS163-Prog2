@@ -1,39 +1,49 @@
-//This header defines an interface for a binder, b_s_node, and binder_stack.
-	// binder is a struct representing one binder in a stack.
-	// b_s_node is a struct representing one entry in the binder_stack LLL, containing a binder.
-	// binder_stack is a class representing a LiFo stack of binder_nodes.
-	// b_s_list is a class representing a linear linked list of binder_stacks
+//This header defines an interface for a Binder, Binder_stack, and B_s_list
+	// Binder is a bare-minimum struct to contain data representing one binder in a stack.
+	// Binder_stack_entry is a struct representing one entry in a Binder_stack.
+	// Binder_stack is a class representing a LiFo stack of binder_nodes.
+	// B_s_list is a class representing a linear linked list of binder_stacks
+
+
+// TODO are we doing Binder & Binder_stack_entry struct construction in the best way possible?
 
 #include "todo.h"
+#include <cstring>
 
-struct Binder{ 
-private:
-	Todo_queue * todoHead;
+struct Binder{
+	Todo_queue * todo_q_head;
 	char * subject;
-	bool completed_status; //
+	bool completed_status; // true if binder completed, false otherwise
 	char * content_description;
 	//<TYPE> <name>; CUSTOM PROPERTY TBD
 
-public:
-	Binder * next;
+	bool display();
+};
 
-	int display();
+struct Binder_stack_entry{
+	Binder * binder_;
+	Binder_stack_entry * next_entry;
+
+	bool display();
+
 };
 
 class Binder_stack{
 private:
 	Binder * stackHead;
-
+	const int stack_size = 5; // TODO best practice?
 
 public:
 	int top_index; // should this be private?
-	Binder_stack * next;
+	Binder_stack * next_stack;
 
 	Binder_stack();
 	~Binder_stack();
 
-	int display();
+	bool display();
+
 	int push(const Binder & to_add); // Should this return Binder *?
+
 	Binder * pop();
 	Binder * peek()
 };
@@ -46,8 +56,8 @@ public:
 	B_s_list();
 	~B_s_list()
 
-	int display();
+	bool display();
 
 	int add_stack(const Binder_stack & to_add); // Should the argument be const??
 	int remove_stack(const Binder_stack & to_remove);
-};
+};¬

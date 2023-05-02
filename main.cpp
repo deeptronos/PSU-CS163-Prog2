@@ -18,7 +18,6 @@ int main(){
 
 	while(true){
 		menu_interface->prompt_user();
-
 	}
 
 	delete menu_interface; // TODO is allocating memory for a Menu * necessary?
