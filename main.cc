@@ -9,7 +9,9 @@ int main(){
 //		menu_interface->prompt_user();
 //	}
 
-	bool r = menu_interface->test_binder();
+//	bool r = menu_interface->test_binder();
+	Binder_stack * bs = new Binder_stack;
+
 	delete menu_interface; // unreachable TODO is allocating memory for a Menu * necessary?
 
 	return 0;

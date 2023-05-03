@@ -31,7 +31,7 @@ struct Binder_stack_entry{
 
 class Binder_stack{
 private:
-	Binder * stackHead;
+	Binder_stack_entry * stackHead;
 	const int stack_size = 5; // TODO best practice?
 
 public:
