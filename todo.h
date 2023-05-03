@@ -35,4 +35,4 @@ public:
 
 	Todo_entry * peek();
 
-}
+};

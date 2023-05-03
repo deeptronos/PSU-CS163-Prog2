@@ -8,16 +8,17 @@
 // TODO are we doing Binder & Binder_stack_entry struct construction in the best way possible?
 
 #include "todo.h"
-#include <cstring>
+
 
 struct Binder{
 	Todo_queue * todo_q_head;
 	char * subject;
-	bool completed_status; // true if binder completed, false otherwise
 	char * content_description;
+	bool completed_status; // true if binder completed, false otherwise
 	//<TYPE> <name>; CUSTOM PROPERTY TBD
 
 	bool display();
+
 };
 
 struct Binder_stack_entry{
@@ -45,7 +46,7 @@ public:
 	int push(const Binder & to_add); // Should this return Binder *?
 
 	Binder * pop();
-	Binder * peek()
+	Binder * peek();
 };
 
 class B_s_list{
@@ -54,10 +55,10 @@ private:
 
 public:
 	B_s_list();
-	~B_s_list()
+	~B_s_list();
 
 	bool display();
 
 	int add_stack(const Binder_stack & to_add); // Should the argument be const??
 	int remove_stack(const Binder_stack & to_remove);
-};¬
+};
